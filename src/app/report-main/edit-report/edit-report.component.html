@@ -1,0 +1,117 @@
+<div class="main">
+    <div class="sidemenu">
+        <ul>
+          <li>
+            <a href="/report">Report</a>
+          </li>
+          <li>
+            <a href="/chart">Charts</a>
+          </li>
+        </ul>
+      </div>
+    <div class="table">
+        <h3>Manage Report</h3>
+        <div class="main-div">
+            <div class="header">
+                <input type="text" placeholder="Report Name" [(ngModel)]="name">
+                <input type="text" placeholder="Description" [(ngModel)]="descp">
+            </div>
+            <div class="main-div-sidemenu">
+                <div class="section-option">
+                    <div class="container">
+                        <div
+                            cdkDropList
+                            #reportList="cdkDropList"
+                            [cdkDropListData]="reports"
+                            [cdkDropListConnectedTo]="[mainareaList]"
+                            class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                            <ul nz-menu nzMode="inline">
+                                <li nz-submenu nzTitle="Reports" class="section">
+                                    <ul>
+                                    <li nz-menu-item class="example-box" *ngFor="let item of reports" cdkDrag>{{item}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div
+                            cdkDropList
+                            #filtersList="cdkDropList"
+                            [cdkDropListData]="filter"
+                            [cdkDropListConnectedTo]="[mainFilterList]"
+                            class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                            <ul nz-menu nzMode="inline">
+                                <li nz-submenu nzTitle="Filters" class="section">
+                                    <ul>
+                                    <li nz-menu-item class="example-box" *ngFor="let item of filter" cdkDrag>{{item}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div
+                            cdkDropList
+                            #contentList="cdkDropList"
+                            [cdkDropListData]="content_complete"
+                            [cdkDropListConnectedTo]="[mainareaList]"
+                            class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                            <ul nz-menu nzMode="inline" *ngFor="let item of content_complete">
+                                <li nz-submenu nzTitle="{{item}}" class="section">
+                                    <ul>
+                                    <li nz-menu-item class="example-box" cdkDrag>{{item}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-area">
+                    <div class="container">
+                        <div
+                            cdkDropList
+                            #mainFilterList="cdkDropList"
+                            [cdkDropListData]="mainarea"
+                            [cdkDropListConnectedTo]="[filtersList]"
+                            class="report-list"
+                            (cdkDropListDropped)="drop($event)">
+                            <div class='report-items' *ngFor="let item of mainarea" cdkDrag>{{item}}</div>
+                        </div>
+                        <div
+                            cdkDropList
+                            #mainareaList="cdkDropList"
+                            [cdkDropListData]="table"
+                            [cdkDropListConnectedTo]="[reportList]"
+                            class="report-list"
+                            (cdkDropListDropped)="drop($event)">
+                            <div cdkDrag class="reports-main">
+                                <div class="report-table" *ngFor="let item of table_content_complete">
+                                    <p>{{item.name}}</p>
+                                    <table>
+                                        <thead>
+                                         <th *ngFor="let head of item.header">
+                                             {{head}}
+                                         </th>
+                                        </thead> 
+                                        <tbody>
+                                         <!-- <tr *ngFor="let rows of item.rows">
+                                             <td *ngFor="let i of rows | keyvalue">{{i.value}}</td>
+                                         </tr> -->
+                                         <tr *ngFor="let row of item.rows">
+                                             <td *ngFor="let i of row[0] | keyvalue">{{i.value}}</td>
+                                         </tr>
+                                        </tbody>
+                                     </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-div">
+                <button (click)="submit()">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+

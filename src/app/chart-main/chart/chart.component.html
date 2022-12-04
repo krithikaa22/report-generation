@@ -1,0 +1,45 @@
+<div class="main">
+    <div class="sidemenu">
+        <ul>
+            <li>
+              <a href="/report">Report</a>
+            </li>
+            <li>
+              <a href="/chart">Charts</a>
+            </li>
+          </ul>
+      </div>
+    <div class="table">
+        <div class="table-header">
+            <input type="text" placeholder="Search">
+            <button><a href="/addchart">Add New</a></button>
+        </div>
+        <div class="table-parent">
+            <table datatable class="row-border hover">
+                <thead>
+                  <tr>
+                    <th>Chart Name</th>
+                    <th>Preview</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of data">
+                    <td>{{item.name}}</td>
+                    <td>
+                        <span nz-icon nzType="eye" nzTheme="outline"></span>
+                    </td>
+                    <td>
+                        <span nz-icon nzType="edit" nzTheme="outline" (click)="edit(item)"></span>
+                    </td>
+                    <td>
+                        <span nz-icon nzType="delete" nzTheme="outline" (click)="delete(item)"></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+  

@@ -1,0 +1,177 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    margin: 0%;
+}
+
+.sidemenu{
+    width: 20%;
+    background-color: rgb(26, 44, 97);
+    color: white;
+    padding-top: 5vh;
+    min-height: 100vh;
+}
+
+.sidemenu a{
+    color: white;
+    text-decoration: none;
+}
+
+.sidemenu a:visited{
+    color: white;
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none !important;
+    padding-left: 0%;
+}
+.sidemenu li{
+    padding: 1.5vh 0vh;
+    font-size: 1.5vw;
+    text-align: center;
+
+}
+.sidemenu li:nth-child(1){
+    background-color: rgb(155, 194, 235);
+}
+
+.table{
+    margin-left: 4vw;
+    margin-right: 4vw;
+    width: 100%;
+    margin-top: 5vh;
+}
+
+.table h3{
+    font-size: 2vw;
+    font-weight: 500;
+}
+
+
+
+
+.table{
+    width: 80vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 2vw;
+}
+
+.table table{
+    min-height: fit-content;
+    margin-top: 4vh;
+}
+
+
+.table th{
+    background-color: rgb(121, 169, 220);
+    color: white;
+    text-align: left;
+    font-weight: 500;
+    padding: 0.5vw 3vw;
+    padding-left: 0.5vw;
+    font-size: 1.25vw;
+}
+.table td{
+    background-color: rgb(181, 210, 242);
+    padding: 0.25vw;
+    margin-right: 1vw;
+}
+.table tr:nth-child(even) td{
+    background-color: rgb(149, 189, 232);
+}
+.table tr td:first-child{
+    padding: 0.5vw;
+    width: 70%;
+}
+.table td span {
+    display: flex;
+    justify-content: center;
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.header input{
+    width: 30vw;
+    padding: 0.5vw;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.header input:nth-child(2){
+    width: 40vw;
+}
+
+.main-div-sidemenu{
+    display: flex;
+    flex-direction: row;
+}
+
+.section-option{
+    width: 20%;
+}
+
+.ant-menu-submenu-title, .section{
+    background-color: rgb(121, 169, 220) !important;
+    color: white;
+}
+
+.section li{
+    background-color: rgb(181, 210, 242);
+}
+
+.section li:nth-child(even){
+    background-color: rgb(149, 189, 232);
+}
+
+.main-area{
+    margin-left: 2vw;
+    border: 1px solid black;
+    width: 100%;
+    height: 75vh;
+    border-radius: 15px;
+}
+
+.report-list{
+    padding: 2vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.report-items{
+    border: 1px solid black;
+    padding: 0.5vw 2vw;
+    width: fit-content;
+    border-radius: 5px;
+    margin: 1vw;
+}
+
+.reports-main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.report-table{
+    margin: 1vw;
+}
+
+.report-table table{
+    margin-top: 1vh;
+}
+
+.report-table p{
+    font-weight: 600;
+    font-size: 1.2vw;
+}

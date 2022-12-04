@@ -1,0 +1,70 @@
+<div class="main">
+    <div class="sidemenu">
+        <ul>
+          <li>
+            <a href="/report">Report</a>
+          </li>
+          <li>
+            <a href="/chart">Charts</a>
+          </li>
+        </ul>
+      </div>
+    <div class="table">
+        <h3>Add Chart</h3>
+        <div class="main-div">
+            <div class="main-div-sidemenu">
+                <div class="section-option">
+                    <div
+                            cdkDropList
+                            #reportList="cdkDropList"
+                            [cdkDropListData]="component"
+                            [cdkDropListConnectedTo]="[mainareaList]"
+                            class="chart-list"
+                            (cdkDropListDropped)="drop($event)">
+                            <ul nz-menu nzMode="inline">
+                                <li nz-submenu nzTitle="Chart Types" class="section">
+                                    <ul>
+                                    <li nz-menu-item class="example-box" *ngFor="let item of component" cdkDrag>{{item}}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div
+                        cdkDropList
+                        #mainareaList="cdkDropList"
+                        [cdkDropListData]="mainarea"
+                        [cdkDropListConnectedTo]="[reportList]"
+                        (cdkDropListDropped)="drop($event)">
+                        <div cdkDrag class="reports-main">
+                            <div class="report-dropdown" *ngFor="let item of mainarea">
+                                <ul nz-menu nzMode="inline" *ngIf="tables">
+                                    <li nz-submenu nzTitle="Data Table" class="section">
+                                        <ul>
+                                        <li nz-menu-item class="example-box" *ngFor="let item of tables" cdkDrag (click)="setCols(item)">{{item}}</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-div">
+                  <div *ngFor="let item of table_header" class="col">
+                    <label for="">{{item.col_name}}</label>
+                    <input [(ngModel)]="item.label" type="text" placeholder="{{item.label}} - Label" (change)="text()" />
+                    <span nz-icon nzType="delete" [nzTheme]="'fill'"></span>
+                  </div>
+                 <div class="col-filters-div">
+                    <p>Filters</p>
+                    <div class="report-list" *ngIf="filters[0].filter_id">
+                      <div class="report-items" *ngFor="let item of filters">{{item.filter_id}}</div>
+                    </div>
+                 </div>
+                </div>
+                <div class="btn-div">
+                    <button (click)="submit()">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
