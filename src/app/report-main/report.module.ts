@@ -22,7 +22,7 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
-
+import {CommonModule} from "@angular/common"
 
 registerLocaleData(en);
 const materialModules = [
@@ -42,6 +42,7 @@ const materialModules = [
     NzMenuModule,
     DragDropModule,
     NzDropDownModule,
+    CommonModule
   ],
 })
 export class ReportModule { }

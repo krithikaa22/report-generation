@@ -19,9 +19,16 @@ export class HttpService {
 
   dataEditReport: any
 
+  reports : any
+
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   public getReports(){
+    // var dataR = this.httpClient.get(`${this.api}/report`).subscribe(data => {
+    //   this.reports = data
+    //   console.log(data, this.reports)
+    //   return this.reports
+    // })
     return this.httpClient.get(`${this.api}/report`)
   }
 

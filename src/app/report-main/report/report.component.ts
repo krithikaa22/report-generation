@@ -23,18 +23,16 @@ delete = (item: any) => {
 }
 
   constructor(
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer,
     private router: Router,
     private http: HttpService
   ) {
+  }
+
+  ngOnInit(): void {
     this.http.getReports().subscribe(data => {
       this.data = data
       console.log(data)
     })
-  }
-
-  ngOnInit(): void {
   }
 
 }

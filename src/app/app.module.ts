@@ -20,9 +20,7 @@ import { AddReportComponent } from './report-main/add-report/add-report.componen
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import { AddChartComponent } from './chart-main/add-chart/add-chart.component';
-import { EditReportComponent } from './report-main/edit-report/edit-report.component';
-import { EditChartComponent } from './chart-main/edit-chart/edit-chart.component'
+
 
 
 registerLocaleData(en);

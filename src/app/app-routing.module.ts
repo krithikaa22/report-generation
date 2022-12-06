@@ -11,37 +11,37 @@ const routes: Routes = [
   {
     path: 'report',
     component: ReportComponent,
-    loadChildren: () => import('src/app/report-main/report.module').then(m => m.ReportModule),
+    loadChildren: () => import('./report-main/report.module').then(m => m.ReportModule),
   },
   {
     path: 'chart',
     component: ChartComponent,
-    loadChildren: () => import('src/app/chart-main/chart.module').then(m => m.ChartModule)
+    loadChildren: () => import('./chart-main/chart.module').then(m => m.ChartModule)
   },
   {
     path: '',
     component: ReportComponent,
-    loadChildren: () => import('src/app/report-main/report.module').then(m => m.ReportModule),
+    loadChildren: () => import('./report-main/report.module').then(m => m.ReportModule),
   },
   {
     path: 'addreport',
     component: AddReportComponent,
-    loadChildren: () => import('src/app/report-main/report.module').then(m => m.ReportModule)
+    loadChildren: () => import('./report-main/report.module').then(m => m.ReportModule)
   },
   {
     path: 'addchart',
     component: AddChartComponent,
-    loadChildren: () => import('src/app/chart-main/chart.module').then(m => m.ChartModule)
+    loadChildren: () => import('./chart-main/chart.module').then(m => m.ChartModule)
   },
   {
     path: 'editreport',
     component: EditReportComponent,
-    loadChildren: () => import('src/app/report-main/report.module').then(m => m.ReportModule)
+    loadChildren: () => import('./report-main/report.module').then(m => m.ReportModule)
   },
   {
     path: 'editchart',
     component: EditChartComponent,
-    loadChildren: () => import('src/app/chart-main/chart.module').then(m => m.ChartModule)
+    loadChildren: () => import('./chart-main/chart.module').then(m => m.ChartModule)
   }
 ];
 
