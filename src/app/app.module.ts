@@ -20,8 +20,7 @@ import { AddReportComponent } from './report-main/add-report/add-report.componen
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-
-
+import { NgxChartsModule } from '@swimlane/ngx-charts/public-api';
 
 registerLocaleData(en);
 const materialModules = [
@@ -29,8 +28,7 @@ const materialModules = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
+  declarations: [AppComponent
   ],
   imports: [
     BrowserAnimationsModule,

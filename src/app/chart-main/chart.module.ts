@@ -21,7 +21,7 @@ import {DataTablesModule} from 'angular-datatables';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {CommonModule} from "@angular/common"
 
 registerLocaleData(en);
@@ -42,7 +42,8 @@ const materialModules = [
     NzMenuModule,
     DragDropModule,
     NzDropDownModule,
-    CommonModule
+    CommonModule,
+    NgxChartsModule,
   ],
 })
 export class ChartModule { }

@@ -1,0 +1,16 @@
+<div>
+    <select (change)="setType($event)">
+        <option value="pie">Pie Chart</option>
+        <option value="pivot">Pivot Table</option>
+        <option value="bar">bar</option>
+    </select>
+</div>
+<div>
+    <ngx-charts-pie-chart 
+    [results]="data"
+    [legend]="true"
+    [legendTitle]="'Product Sale Report'" 
+    [view]="[1000,300]"
+    [labels]="true" >
+</ngx-charts-pie-chart>
+</div>

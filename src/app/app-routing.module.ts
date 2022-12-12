@@ -6,6 +6,7 @@ import { AddReportComponent } from './report-main/add-report/add-report.componen
 import { AddChartComponent } from './chart-main/add-chart/add-chart.component';
 import { EditReportComponent } from './report-main/edit-report/edit-report.component';
 import { EditChartComponent } from './chart-main/edit-chart/edit-chart.component';
+import { ChartsComponent } from './chart-main/charts/charts.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,11 @@ const routes: Routes = [
   {
     path: 'editchart',
     component: EditChartComponent,
+    loadChildren: () => import('./chart-main/chart.module').then(m => m.ChartModule)
+  },
+  {
+    path: 'viewchart',
+    component: ChartsComponent,
     loadChildren: () => import('./chart-main/chart.module').then(m => m.ChartModule)
   }
 ];
