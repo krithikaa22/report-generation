@@ -6,6 +6,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { ChartComponent } from './chart/chart.component';
 import { AddChartComponent } from './add-chart/add-chart.component';
 import { EditChartComponent } from './edit-chart/edit-chart.component';
+import { ChartsComponent } from './charts/charts.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,6 +24,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {CommonModule} from "@angular/common"
+import {ChartRouteRoutingModule} from "./chart-route-routing.module"
 
 registerLocaleData(en);
 const materialModules = [
@@ -33,7 +35,8 @@ const materialModules = [
   declarations: [
     ChartComponent,
     AddChartComponent,
-    EditChartComponent
+    EditChartComponent,
+    ChartsComponent
   ],
   imports: [
     materialModules,
@@ -44,6 +47,7 @@ const materialModules = [
     NzDropDownModule,
     CommonModule,
     NgxChartsModule,
+    ChartRouteRoutingModule
   ],
 })
 export class ChartModule { }
