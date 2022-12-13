@@ -12,7 +12,7 @@ export class ChartComponent implements OnInit {
   data: any;
 
   edit = (item: any) => {
-    this.router.navigate(['/editchart'])
+    this.router.navigate(['/chart/editchart'])
   }
     
   delete = (item: any) => {

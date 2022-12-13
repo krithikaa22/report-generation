@@ -9,7 +9,7 @@ export class ChartsComponent implements OnInit {
 
   type = ''
 
-  data = [
+  dataPie = [
     {
       "name": "Germany",
       "value": 8940000
@@ -32,7 +32,41 @@ export class ChartsComponent implements OnInit {
     console.log(this.type)
   }
 
-  constructor() { }
+  dataBar = [
+    {
+      "name": "Germany",
+      "value": 8940000
+    },
+    {
+      "name": "USA",
+      "value": 5000000
+    },
+    {
+      "name": "France",
+      "value": 7200000
+    }
+  ];
+  
+
+  view = [700, 400];
+  showXAxis: boolean = true;
+  showYAxis: boolean = true;
+  gradient: boolean = false;
+  showLegend: boolean = true;
+  showXAxisLabel: boolean = true;
+  yAxisLabel: string = 'Country';
+  showYAxisLabel: boolean = true;
+  xAxisLabel: string = 'Population';
+
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
+
+  constructor() {
+   
+  }
+
+
 
   ngOnInit(): void {
   }

@@ -24,6 +24,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import {CommonModule} from "@angular/common"
 
+import { ReportRouteRouting } from './report-route-routing.module';
+
 registerLocaleData(en);
 const materialModules = [
   MatIconModule
@@ -42,7 +44,8 @@ const materialModules = [
     NzMenuModule,
     DragDropModule,
     NzDropDownModule,
-    CommonModule
+    CommonModule,
+    ReportRouteRouting
   ],
 })
 export class ReportModule { }

@@ -15,7 +15,7 @@ export class ReportComponent implements OnInit {
 
 edit = (item: any) => {
  this.http.setDataForEditReport(item)
- this.router.navigate(['/editreport'])
+ this.router.navigate(['/report/editreport'])
 }
   
 delete = (item: any) => {

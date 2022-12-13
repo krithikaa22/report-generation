@@ -7,7 +7,6 @@ import { EditReportComponent } from './report-main/edit-report/edit-report.compo
 const routes: Routes = [
   {
     path: 'report',
-    component: ReportComponent,
     loadChildren: () => import('./report-main/report.module').then(m => m.ReportModule),
   },
   {
@@ -16,19 +15,9 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: ReportComponent,
-    loadChildren: () => import('./report-main/report.module').then(m => m.ReportModule),
+    redirectTo: 'report',
+    pathMatch: 'full'
   },
-  {
-    path: 'addreport',
-    component: AddReportComponent,
-    loadChildren: () => import('./report-main/report.module').then(m => m.ReportModule)
-  },
-  {
-    path: 'editreport',
-    component: EditReportComponent,
-    loadChildren: () => import('./report-main/report.module').then(m => m.ReportModule)
-  }
 ];
 
 @NgModule({

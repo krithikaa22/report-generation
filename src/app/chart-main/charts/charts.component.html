@@ -1,16 +1,36 @@
-<div>
+<div class="select-div">
     <select (change)="setType($event)">
+        <option>Select type of chart</option>
         <option value="pie">Pie Chart</option>
         <option value="pivot">Pivot Table</option>
-        <option value="bar">bar</option>
+        <option class="option" value="bar">bar</option>
     </select>
 </div>
-<div>
+<div class="chart-div">
     <ngx-charts-pie-chart 
-    [results]="data"
-    [legend]="true"
-    [legendTitle]="'Product Sale Report'" 
-    [view]="[1000,300]"
-    [labels]="true" >
-</ngx-charts-pie-chart>
+        [results]="dataPie"
+        [view]="[view[0], view[1]]"
+        [legend]="true"
+        [legendTitle]="'Product Sale Report'" 
+        [view]="[1000,300]"
+        [labels]="true" *ngIf="type == 'pie'">
+    </ngx-charts-pie-chart>
+</div>
+<div class="chart-div">
+    <ngx-charts-bar-vertical
+    *ngIf="type === 'bar'"
+    class="chart-container"
+    [view]="[view[0], view[1]]"
+    [scheme]="colorScheme"
+    [results]="dataBar"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+  >
+  </ngx-charts-bar-vertical>
 </div>
