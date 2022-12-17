@@ -7,3 +7,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-left: auto !important;
     margin-right: auto !important;
   }
+  .db-table-view{
+    margin: auto !important;
+    width: 30vw !important;
+    overflow: scroll !important;
+}

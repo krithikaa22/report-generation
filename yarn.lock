@@ -1928,6 +1928,13 @@ angular-datatables@^14.0.1:
   dependencies:
     codelyzer "^6.0.2"
 
+angular-pivot-table@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/angular-pivot-table/-/angular-pivot-table-1.0.3.tgz#32dc94359a53f40ef9239018d0cd17d3aeb6010e"
+  integrity sha512-pitEHQw+o/raI+zIVYzledTyYxaXuWm8vZdCVIiJIxQBzMNJpPM5cu7NJV48cz2eLohPAybU4hHecgNcbDeF+Q==
+  dependencies:
+    tslib "^2.0.0"
+
 ansi-colors@4.1.3:
   version "4.1.3"
   resolved "https://registry.npmjs.org/ansi-colors/-/ansi-colors-4.1.3.tgz"

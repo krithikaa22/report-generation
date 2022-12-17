@@ -22,6 +22,7 @@
     "@angular/router": "^14.2.0",
     "@swimlane/ngx-charts": "13.0.4",
     "angular-datatables": "^14.0.1",
+    "angular-pivot-table": "^1.0.3",
     "datatables.net": "^1.11.3",
     "datatables.net-dt": "^1.11.3",
     "jquery": "^3.6.0",
