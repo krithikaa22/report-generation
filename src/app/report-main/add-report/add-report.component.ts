@@ -36,22 +36,13 @@ export class AddReportComponent implements OnInit {
   }] //list of objects with the table data
 
   table_content : any //complete lisst of the reports and their data
-  
+  table_val = ''
+  filter_val = ''
+  temp = ''
 
-  drop(event: CdkDragDrop<string[]>) {
-    console.log(event.previousContainer, event.container)
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      );
-    }
-
-    this.table_content_complete = []
+  report(){
+    this.table.push(this.table_val)
+   this.table_content_complete = []
     this.table.map((t: string) => {
       this.table_content.map((el: any) => {
         if(Object.keys(el)[0] == t) {
@@ -67,11 +58,18 @@ export class AddReportComponent implements OnInit {
             name: t
           }
           temp.rows = temp.rows.filter((r:any) => r!= undefined)
-          this.table_content_complete.push(temp)
+          if(this.table_content_complete.length < 5){
+            this.table_content_complete.push(temp)
+          }
         }
       })
     })
-    console.log(this.table_content_complete)
+    console.log(this.table_content_complete[0].rows)
+  }
+
+  drop() {
+   this.mainarea.push(this.filter_val)
+    console.log(this.mainarea)
   }
 
   submit(){

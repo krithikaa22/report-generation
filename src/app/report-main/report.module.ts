@@ -7,6 +7,10 @@ import { ReportComponent } from '../report-main/report/report.component';
 import { AddReportComponent } from './add-report/add-report.component';
 import { EditReportComponent } from './edit-report/edit-report.component';
 
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzTagModule } from 'ng-zorro-antd/tag';
+import { NzInputModule } from 'ng-zorro-antd/input';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -45,7 +49,10 @@ const materialModules = [
     DragDropModule,
     NzDropDownModule,
     CommonModule,
-    ReportRouteRouting
+    ReportRouteRouting,
+    NzTagModule,
+    NzSelectModule,
+    NzInputModule,
   ],
 })
 export class ReportModule { }

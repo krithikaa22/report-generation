@@ -134,16 +134,17 @@ ul{
 }
 
 .col{
-    width: 40%;
+    width: 92%;
     display: flex;
     justify-content: space-between;
-    margin: 1vw 2vw;
+    margin: 1vw;
 }
 .col input{
-    width: 60%;
-    padding: 0.5vw;
+    width: 70%;
+    padding: 0.25vw;
     border: 1px solid black;
     border-radius: 5px;
+    margin-right: 1vw;
 }
 .col label, .col span{
     margin: auto;
@@ -156,23 +157,39 @@ ul{
 .col-div{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     width: 100%;
+    border: 1px solid black;
+    margin-top: 2vh;
+    border-radius: 5px;
+    padding-bottom: 4vh;
+}
+
+.col-div-parent{
+    width: 35vw;
+    margin-right: 2vw;
+}
+
+.col-div-parent p{
+    margin-bottom: 0%;
     margin-top: 5vh;
+    font-size: 1.4vw;
 }
 
 .col-filters-div{
     margin-top: 5vh;
     font-size: 1.4vw;
+    width: 35vw;
 }
 
-.report-items{
+/* .report-items{
     border: 1px solid black;
     padding: 0.5vw 2vw;
-    width: fit-content;
+    width: 100%;
     border-radius: 5px;
     margin: 1vw;
     height: fit-content;
-}
+} */
 
 .report-list{
     border-radius: 5px;
@@ -182,7 +199,7 @@ ul{
     flex-direction: row;
     flex-wrap: wrap;
     border: 1px solid black;
-    width: 70vw;
+    width: 100%;
     font-size: 1vw;
 }
 
@@ -200,5 +217,24 @@ button{
     padding: 0.75vw 2vw;
     font-size: 1vw;
     border: none;
+    border-radius: 5px;
+}
+
+.ant-select{
+    width: 20vw;
+    padding: 0.5vw;
+}
+
+.bottom-div{
+    display: flex;
+}
+
+.col-div-parent .btn-div{
+    width: fit-content;
+    margin: auto;
+}
+
+.ant-tag{
+    padding: 1vw;
     border-radius: 5px;
 }

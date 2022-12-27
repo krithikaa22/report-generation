@@ -5,7 +5,8 @@ from flask_cors import CORS
 config = {
   'ORIGINS': [
     'http://localhost:4200',  
-    'http://127.0.0.1:5000',  
+    'http://192.168.1.4:105',  
+    'http://127.0.0.1:105'
   ]
 }
 
@@ -230,7 +231,8 @@ def getComponentList():
         return [
     'Table',
     'bar',
-    'Pie'
+    'pie',
+    'pivot'
   ]
 
 if __name__ == '__main__':

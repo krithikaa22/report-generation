@@ -23,67 +23,88 @@ export class AddChartComponent implements OnInit {
 
   mainarea : string[]; // list maintaining the added filter
 
+ 
+
+  // tables_chosen : string[]
+  x = ""
+  y = ''
+
+  table_content : any
+
+  chart_type: string
   tables: any //list maintaining the added reports
-  filters = [
-    {
-      "filter_id":'',
-      "filter_col":"",
-      "data_type":"",
-      "data_table_id":''
-}
-  ]
+  filters : any
   table_header = [{
     "col_name": "",
     "label": ""
   }] //list of the headers in the reports
-  tables_chosen : string[]
 
+  col_list =[{
+    "col_name": "",
+    "label": ""
+  }]
 
-  table_content : any
+  drop() {
+    console.log(this.chart_type)
+   
+      this.tables = [
+        {
+          'data_table': "Temp",
+          "data_table_id": 1234,
+          "cols": this.table_content[0],
+          "filters": [
+            {
+              "filter_id":123,
+              "filter_col":"date created",
+              "data_type":"timestamp",
+              "data_table_id":1213
+            },
+            {
+              "filter_id":123,
+              "filter_col":"date created",
+              "data_type":"timestamp",
+              "data_table_id":1213
+            },
+            {
+              "filter_id":123,
+              "filter_col":"date created",
+              "data_type":"timestamp",
+              "data_table_id":1213
+            },
+          ]
+        }
+      ]
   
-
-
-  drop(event: CdkDragDrop<string[]>) {
-    console.log(event.previousContainer, event.container, event.previousIndex, event.currentIndex)
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      );
-    }
-
-    if(this.tables_chosen.length > 0){
-      var temp: string[] = []
-      this.table_content.map((el:any) => temp.push(el.data_table))
-      this.tables = temp
-
-      this.tables_chosen.map(el => {
-        console.log(this.table_content[0].cols)
-        this.table_content.filter((r: any) => r.data_table == el)[0].cols.map((c:any) => {
-      this.table_header.push({
-        "col_name": c,
-        "label": c
-      })
-    })
-      })
-    }
+    console.log(this.tables)
   }
 
-  setCols = (item: any) => {
-    this.table_content.filter((r:any) => r.data_table == item)[0].cols.map((c:any) => {
+  setCols = () => {
+    // console.log(Object(this.table_content[0]).keys)
+    this.table_header = []
+    this.col_list = []
+    this.filters = []
+    Object.keys(this.tables[0].cols).map((c: any, index) => {
       this.table_header.push({
         "col_name": c,
         "label": c
       })
-    })
-    this.filters = this.table_content.filter((r: any) => r.data_table == item)[0].filters
-    console.log(this.filters)
-  } 
+      if( index < 5){
+        this.col_list.push({
+          "col_name": c,
+          "label": c
+        })
+      }
 
+    })
+    this.filters = this.tables[0].filters
+  } 
+  addColumn(){
+    console.log(this.col_list)
+    this.col_list.push({
+      "col_name": '',
+      "label": ''
+    })
+  }
   submit(){
     var finalData = {
       "chart_type" : "table",
@@ -102,12 +123,19 @@ export class AddChartComponent implements OnInit {
   }
 
   constructor( private http: HttpService, private router: Router) {
+    this.chart_type = ''
+    this.tables = ['']
     this.http.getComponentList().subscribe(data => {
       this.component = data
     })
+
+    console.log(this.component)
     
     this.http.getTableContent().subscribe(data => {
+      console.log(data)
       this.table_content = data
+      console.log(this.table_content.data)
+      this.table_content = this.table_content.data
       })  
 
   
@@ -116,13 +144,33 @@ export class AddChartComponent implements OnInit {
       "col_name": "",
       "label": ""
     }]
-
-    this.tables_chosen = ['']
+    this.col_list = [{
+      "col_name": "",
+      "label": ""
+    }]
+    // this.tables_chosen = ['']
     this.table_header = this.table_header.filter(t => this.table_header.indexOf(t) != 0)
     console.log(this.table_content)
+    this.filters = [{
+      "filter_id":0,
+              "filter_col": '',
+              "data_type":"",
+              "data_table_id":0
+    }]
    }
 
   ngOnInit(): void {
+
+    // this.component.map(c => {
+    //   if(c.component_type == 'report') {
+    //     this.reports = c.component_elements
+    //   }
+    //   else if(c.component_type == 'filters'){
+    //     this.filter = c.component_elements
+    //   }
+    //   else this.content_complete.push(c.component_type)
+    // })]
+  
   }
 
 }

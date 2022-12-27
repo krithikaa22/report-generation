@@ -1,10 +1,9 @@
 <div class="select-div">
-    <select (change)="setType($event)">
-        <option>Select type of chart</option>
-        <option value="pie">Pie Chart</option>
-        <option value="pivot">Pivot Table</option>
-        <option class="option" value="bar">bar</option>
-    </select>
+    <nz-select [(ngModel)]="type" (ngModelChange)="setType($event)" nzPlaceHolder="Select chart type">
+        <nz-option nzValue="pis" nzLabel="Pie Chart"></nz-option>
+        <nz-option nzValue="pivot" nzLabel="Pivot Table"></nz-option>
+        <nz-option nzValue="bar" nzLabel="Bar"></nz-option>
+    </nz-select>
 </div>
 <div class="chart-div">
     <ngx-charts-pie-chart 

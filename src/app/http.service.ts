@@ -7,13 +7,13 @@ import { Router } from '@angular/router';
 })
 export class HttpService {
 
-  api = 'http://127.0.0.1:5000'
+  api = "http://192.168.1.4:105"
 
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Allow': "PUT",
-      'Access-Control-Allow-Origin': 'http://127.0.0.1:5000'
+      'Access-Control-Allow-Origin': ['http://192.168.1.4:105', 'https://quote.cloobot.ai/3api/report-gen/materdata/planedgeStatic']
     })
   }
 
@@ -29,6 +29,7 @@ export class HttpService {
     //   console.log(data, this.reports)
     //   return this.reports
     // })
+    console.log(this.httpClient.get(`${this.api}`))
     return this.httpClient.get(`${this.api}/report`)
   }
 
@@ -49,7 +50,7 @@ export class HttpService {
   }
 
   public getTableContent(){
-    return this.httpClient.get(`${this.api}/tablecontent`)
+    return this.httpClient.post(`https://quote.cloobot.ai/3api/report-gen/materdata/planedgeStatic`, {"nrows": 10})
   }
 
   public getComponentList(){

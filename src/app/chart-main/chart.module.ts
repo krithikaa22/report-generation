@@ -5,6 +5,10 @@ import { AddChartComponent } from './add-chart/add-chart.component';
 import { EditChartComponent } from './edit-chart/edit-chart.component';
 import { ChartsComponent } from './charts/charts.component';
 
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzTagModule } from 'ng-zorro-antd/tag';
+import { NzInputModule } from 'ng-zorro-antd/input';
+
 import { MatIconModule } from '@angular/material/icon';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
@@ -42,6 +46,9 @@ const materialModules = [
     NgxChartsModule,
     ChartRouteRoutingModule,
     AngularPivotTableModule,
+    NzSelectModule,
+    NzTagModule,
+    NzInputModule,
   ],
 })
 export class ChartModule { }

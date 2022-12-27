@@ -19,65 +19,78 @@ export class EditChartComponent implements OnInit {
 
   mainarea : string[]; // list maintaining the added filter
 
+ 
+
+  // tables_chosen : string[]
+
+
+  table_content : any
+
+  chart_type: string[]
   tables: any //list maintaining the added reports
   filters = [
-    {
-      "filter_id":'',
-      "filter_col":"",
-      "data_type":"",
-      "data_table_id":''
-}
+   ''
   ]
   table_header = [{
     "col_name": "",
     "label": ""
   }] //list of the headers in the reports
-  tables_chosen : string[]
 
+  col_list =[{
+    "col_name": "",
+    "label": ""
+  }]
 
-  table_content : any
+  drop() {
+    console.log(this.chart_type)
+    // var temp: string[] = []
+    //   this.table_content.map((el:any) => temp.push(el.data_table))
+      this.tables = ['Temp Data']
+      // this.table_content.filter((r: any) => r.data_table == this.chart_type)[0].cols.map((c:any) => {
+      //   this.table_header.push({
+      //     "col_name": c,
+      //     "label": c
+      //   })
+      // })
 
-  drop(event: CdkDragDrop<string[]>) {
-    console.log(event.previousContainer, event.container, event.previousIndex, event.currentIndex)
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      );
-    }
-
-    if(this.tables_chosen.length > 0){
-      var temp: string[] = []
-      this.table_content.map((el:any) => temp.push(el.data_table))
-      this.tables = temp
-
-      this.tables_chosen.map(el => {
-        console.log(this.table_content[0].cols)
-        this.table_content.filter((r: any) => r.data_table == el)[0].cols.map((c:any) => {
-      this.table_header.push({
-        "col_name": c,
-        "label": c
-      })
-    })
-      })
-    }
+    //   this.tables_chosen.map(el => {
+    //     console.log(this.table_content[0].cols)
+    //     this.table_content.filter((r: any) => r.data_table == el)[0].cols.map((c:any) => {
+    //   this.table_header.push({
+    //     "col_name": c,
+    //     "label": c
+    //   })
+    // })
+    //   })
+    console.log(this.tables)
   }
 
-  setCols = (item: any) => {
-    this.table_content.filter((r: any) => r.data_table == item)[0].cols.map((c: any) => {
+  setCols = () => {
+    // console.log(Object(this.table_content[0]).keys)
+    
+    Object.keys(this.table_content[0]).map((c: any, index) => {
       this.table_header.push({
         "col_name": c,
         "label": c
       })
-    })
-    this.filters = this.table_content.filter((r: any) => r.data_table == item)[0].filters
-    console.log(this.filters)
-  } 
+      if( index < 5){
+        this.col_list.push({
+          "col_name": c,
+          "label": c
+        })
+      }
 
+    })
+    this.filters = Object.keys(this.table_content[0])
+    console.log(this.filters, this.table_header)
+  } 
+  addColumn(){
+    console.log(this.col_list)
+    this.col_list.push({
+      "col_name": '',
+      "label": ''
+    })
+  }
   submit(){
     var finalData = {
       "chart_type" : "table",
@@ -96,12 +109,17 @@ export class EditChartComponent implements OnInit {
   }
 
   constructor( private http: HttpService, private router: Router) {
+    this.chart_type = ['']
+    this.tables = ['']
     this.http.getComponentList().subscribe(data => {
       this.component = data
     })
     
     this.http.getTableContent().subscribe(data => {
+      console.log(data)
       this.table_content = data
+      console.log(this.table_content.data)
+      this.table_content = this.table_content.data
       })  
 
   
@@ -110,8 +128,11 @@ export class EditChartComponent implements OnInit {
       "col_name": "",
       "label": ""
     }]
-
-    this.tables_chosen = ['']
+    this.col_list = [{
+      "col_name": "",
+      "label": ""
+    }]
+    // this.tables_chosen = ['']
     this.table_header = this.table_header.filter(t => this.table_header.indexOf(t) != 0)
     console.log(this.table_content)
    }

@@ -193,3 +193,8 @@ button{
     border: none;
     border-radius: 5px;
 }
+
+.ant-select{
+    width: 15vw;
+    padding: 0.5vw;
+}

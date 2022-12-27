@@ -16,3 +16,8 @@
 .chart-div{
     margin: auto;
 }
+
+.ant-select{
+    width: 20vw;
+    padding: 0.5vw;
+}

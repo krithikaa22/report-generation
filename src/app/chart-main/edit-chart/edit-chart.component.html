@@ -14,52 +14,38 @@
         <div class="main-div">
             <div class="main-div-sidemenu">
                 <div class="section-option">
-                    <div
-                            cdkDropList
-                            #reportList="cdkDropList"
-                            [cdkDropListData]="component"
-                            [cdkDropListConnectedTo]="[mainareaList]"
-                            class="chart-list"
-                            (cdkDropListDropped)="drop($event)">
-                            <ul nz-menu nzMode="inline">
-                                <li nz-submenu nzTitle="Chart Types" class="section">
-                                    <ul>
-                                    <li nz-menu-item class="example-box" *ngFor="let item of component" cdkDrag>{{item}}</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div
-                        cdkDropList
-                        #mainareaList="cdkDropList"
-                        [cdkDropListData]="mainarea"
-                        [cdkDropListConnectedTo]="[reportList]"
-                        (cdkDropListDropped)="drop($event)">
-                        <div cdkDrag class="reports-main">
-                            <div class="report-dropdown" *ngFor="let item of mainarea">
-                                <ul nz-menu nzMode="inline" *ngIf="tables">
-                                    <li nz-submenu nzTitle="Data Table" class="section">
-                                        <ul>
-                                        <li nz-menu-item class="example-box" *ngFor="let item of tables" cdkDrag (click)="setCols(item)">{{item}}</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <nz-select [(ngModel)]="chart_type" (ngModelChange)="drop()" nzPlaceHolder="Select chart type">
+                        <nz-option nzValue="{{item}}" nzLabel="{{item}}" *ngFor="let item of component"></nz-option>
+                    </nz-select>
+                    <nz-select [(ngModel)]="mainarea" *ngIf="component != ['']" (ngModelChange)="setCols()" nzPlaceHolder="Select data table">
+                        <nz-option nzValue="{{item}}" nzLabel="{{item}}" *ngFor="let item of tables"></nz-option>
+                    </nz-select>
+                   </div>
+                <div class="bottom-div" *ngIf="filters[0]">
+
+                  <div class="col-div-parent">
+                    <p>Select Column</p>
+                    <div class="col-div">
+                      <div *ngFor="let item of col_list" class="col">
+                        <nz-select [(ngModel)]="item.col_name"  nzPlaceHolder="{{item.col_name}} - Label">
+                          <nz-option nzValue="{{i.col_name}}" nzLabel="{{i.col_name}}" *ngFor="let i of table_header"></nz-option>
+                        </nz-select>
+                        <!-- <label for="">{{item.col_name}}</label> -->
+                        <input [(ngModel)]="item.label" type="text" placeholder="{{item.label}} - Label" (change)="text()" />
+                        <span nz-icon nzType="delete" [nzTheme]="'fill'"></span>
+                      </div>
+                      <div class="btn-div">
+                        <button (click)="addColumn()">Add Column</button>
                     </div>
-                </div>
-                <div class="col-div">
-                  <div *ngFor="let item of table_header" class="col">
-                    <label for="">{{item.col_name}}</label>
-                    <input [(ngModel)]="item.label" type="text" placeholder="{{item.label}} - Label" (change)="text()" />
-                    <span nz-icon nzType="delete" [nzTheme]="'fill'"></span>
+                    </div>
                   </div>
-                 <div class="col-filters-div">
-                    <p>Filters</p>
-                    <div class="report-list" *ngIf="filters[0].filter_id">
-                      <div class="report-items" *ngFor="let item of filters">{{item.filter_id}}</div>
-                    </div>
-                 </div>
+                    <div class="col-filters-div" >
+                      <p>Filters</p>
+                      <div class="report-list">
+                        <nz-tag class="report-items" nzMode="checkable" [nzChecked]="false" *ngFor="let item of filters">{{item}}</nz-tag>
+                        <!-- <div class="report-items" *ngFor="let item of filters">{{item.filter_id}}</div> -->
+                      </div>
+                   </div>
                 </div>
                 <div class="btn-div">
                     <button (click)="submit()">Add</button>
